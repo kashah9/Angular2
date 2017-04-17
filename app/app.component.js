@@ -29,6 +29,10 @@ System.register(['angular2/core', './courses.component', './authors.component', 
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.post = {
+                        title: "Title",
+                        isFavorite: true
+                    };
                     this.titleHello = "Something New!";
                     this.imageUrl = "http://cdn.collider.com/wp-content/uploads/2016/10/the-boss-baby-slice-600x200.jpg";
                 }
@@ -43,7 +47,7 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: " \n                <div on-click = \"divClick()\" class=\"container\">\n                <h2>{{ titleHello }}</h2>\n                <img [src] = \"imageUrl\" />\n                \n                <!-- class binding with other classes -->\n                <button on-click = \"onClick($event)\"\n                \n                class = \"btn btn-primary\" \n                [class.active] = \"isActive\" \n            \n                [style.backgroundColor] = \"isActive ? 'gray' : 'blue'\">\n                Submit </button>\n\n                \n\n                <div class=\"jumbotron\"><courses></courses>\n                <authors1></authors1>\n                \n                <Favorite></Favorite>\n                </div>\n                </div>",
+                        template: " \n                <div on-click = \"divClick()\" class=\"container\">\n                <h2>{{ titleHello }}</h2>\n                <img [src] = \"imageUrl\" />\n\n                \n                <!-- class binding with other classes -->\n                <button on-click = \"onClick($event)\"\n                \n                class = \"btn btn-primary\" \n                [class.active] = \"isActive\" \n            \n                [style.backgroundColor] = \"isActive ? 'gray' : 'blue'\">\n                Submit </button>\n\n                <div class=\"jumbotron\"><courses></courses>\n                <authors1></authors1>\n                \n                <Favorite\n                [is-favorite]=\"post.isFavorite\"></Favorite>\n                </div>\n                </div>",
                         directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent]
                     }), 
                     __metadata('design:paramtypes', [])

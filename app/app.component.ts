@@ -9,6 +9,7 @@ import {FavoriteComponent} from './favorite.component'
                 <div on-click = "divClick()" class="container">
                 <h2>{{ titleHello }}</h2>
                 <img [src] = "imageUrl" />
+
                 
                 <!-- class binding with other classes -->
                 <button on-click = "onClick($event)"
@@ -19,17 +20,20 @@ import {FavoriteComponent} from './favorite.component'
                 [style.backgroundColor] = "isActive ? 'gray' : 'blue'">
                 Submit </button>
 
-                
-
                 <div class="jumbotron"><courses></courses>
                 <authors1></authors1>
                 
-                <Favorite></Favorite>
+                <Favorite
+                [is-favorite]="post.isFavorite"></Favorite>
                 </div>
                 </div>`,
     directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]
 })
 export class AppComponent { 
+    post = {
+        title: "Title",
+        isFavorite: true 
+    }
     titleHello = "Something New!";
     imageUrl = "http://cdn.collider.com/wp-content/uploads/2016/10/the-boss-baby-slice-600x200.jpg";
     //isActive = false;

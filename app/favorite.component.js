@@ -20,15 +20,20 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             FavoriteComponent = (function () {
                 function FavoriteComponent() {
-                    this.isFavorite = false;
+                    this.isFavorite = false; // input decorator made var public. Default is private. is-favorite is alias for public usage of isFavorite property. 
                 }
                 FavoriteComponent.prototype.onClick = function () {
                     this.isFavorite = !this.isFavorite;
                 };
+                __decorate([
+                    core_1.Input('is-favorite'), 
+                    __metadata('design:type', Object)
+                ], FavoriteComponent.prototype, "isFavorite", void 0);
                 FavoriteComponent = __decorate([
                     core_1.Component({
                         selector: 'Favorite',
-                        template: "\n    <i \n        class =\"glyphicon\"\n        [class.glyphicon-star-empty] = \"!isFavorite\"\n        [class.glyphicon-star] = \"isFavorite\"\n        (click) = \"onClick()\">\n    </i>\n    "
+                        template: "\n    <i \n        class =\"glyphicon\"\n        [class.glyphicon-star-empty] = \"!isFavorite\"\n        [class.glyphicon-star] = \"isFavorite\"\n        (click) = \"onClick()\">\n    </i>\n    ",
+                        inputs: ['isFavorite: is-favorite']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], FavoriteComponent);
